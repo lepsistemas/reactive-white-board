@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
+
+import 'bootstrap/dist/js/bootstrap.bundle.min'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import './App.css'
-import Canvas from './components/Canvas'
+
+import Dashboard from './components/Dashboard'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Canvas fullscreen={true} />
+        <Dashboard />
       </div>
     );
   }
 }
 
-export default App;
+export default App

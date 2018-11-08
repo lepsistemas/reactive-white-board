@@ -14,6 +14,7 @@ export default class Canvas extends React.Component {
             color: "#000000",
             lineWidth: 5
         }
+        this.send = this.send.bind(this)
         this.clear = this.clear.bind(this)
         this.onMouseDown = this.onMouseDown.bind(this)
         this.onMouseOut = this.onMouseOut.bind(this)
@@ -38,8 +39,8 @@ export default class Canvas extends React.Component {
         const canvas = this.canvas()
         const ctx = this.ctx()
         if(this.props.fullscreen === true) {
-            canvas.width = window.innerWidth - 8
-            canvas.height = window.innerHeight - 32
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
         }
         ctx.strokeStyle = "#BADA55"
         ctx.lineJoin = "round"
@@ -88,14 +89,10 @@ export default class Canvas extends React.Component {
 
     onMouseOut() {
         this.setState({isDrawing: false})
-        //this.send()
+        this.send()
     }
 
     render () {
-        const canvasStyle = {
-            border: '1px solid black'
-        }
-
         return (
             <div>
                 <canvas 
@@ -105,9 +102,7 @@ export default class Canvas extends React.Component {
                     onMouseMove={this.onMouseMove}
                     onMouseDown={this.onMouseDown} 
                     onMouseUp={this.onMouseUp} 
-                    onMouseOut={this.onMouseOut} 
-                    style={canvasStyle}/>
-                <button onClick={this.clear}>Clear</button>
+                    onMouseOut={this.onMouseOut} />
             </div>
         )
     }
