@@ -9,7 +9,7 @@ export default class Dashboard extends React.Component {
         return (
             <div>
                 <Header />
-                <Canvas fullscreen={true} />
+                <Canvas />
             </div>
         )
     }
